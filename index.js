@@ -13,6 +13,8 @@ app.use(express.json());
 connectDB();
 
 // Ruta de prueba
+app.use("/app", routes);
+
 app.get("/", (req, res) => {
   res.send("API funcionando correctamente 🚀");
 });
