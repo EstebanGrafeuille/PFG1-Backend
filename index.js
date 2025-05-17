@@ -1,13 +1,17 @@
-const express = require("express");
-const dotenv = require("dotenv");
-const connectDB = require("./connection/connection");
+import express from "express";
+import dotenv from "dotenv";
+import connectDB from "./connection/connection.js";
+import routes from "./routes/routes.js";
+import cookieParser from "cookie-parser";
 
 dotenv.config(); // Carga las variables del .env
 
 const app = express();
 
-// Middleware para recibir JSON
+// Middleware
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(cookieParser());
 
 // Conexión a MongoDB
 connectDB();

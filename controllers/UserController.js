@@ -77,7 +77,8 @@ class UserController {
 
   getMe = async (req, res) => {
     try {
-      const { token } = req.cookies;
+      const token =
+        req.cookies?.token || req.headers.authorization?.split(" ")[1];
       if (!token) throw new Error("Token no proporcionado");
 
       const data = await this.userService.getMe(token);

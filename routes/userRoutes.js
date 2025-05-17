@@ -8,8 +8,6 @@ const userController = new UserController();
 userRoutes.post("/", userController.createUser);
 userRoutes.post("/login", userController.login);
 
-userRoutes.use(validateLogin);
-
 userRoutes.get("/me", userController.getMe);
 userRoutes.put("/:id", userController.updateUser);
 userRoutes.get("/:id", userController.getUserById);
