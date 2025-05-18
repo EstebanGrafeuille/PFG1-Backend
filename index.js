@@ -16,12 +16,8 @@ app.use(cookieParser());
 // Conexión a MongoDB
 connectDB();
 
-// Ruta de prueba
+// Rutas
 app.use("/app", routes);
-
-app.get("/", (req, res) => {
-  res.send("API funcionando correctamente 🚀");
-});
 
 // Levantar el servidor
 const PORT = process.env.PORT || 3000;
